@@ -1,0 +1,808 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description"
+content="GodswillTech - Computer Engineering, Hardware, Technology and Practical Computer Solutions">
+
+  <meta name="theme-color" content="#07111f">  <title>GodswillTech | Computer Engineering & Technology</title>  <style>
+    /* ================================
+       GODSWILLTECH - LIGHTWEIGHT WEBSITE
+       No external libraries required
+       ================================ */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #07111f;
+      color: #e8f1ff;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    /* ---------- HEADER ---------- */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(7, 17, 31, 0.96);
+      border-bottom: 1px solid #1c3552;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-container {
+      width: 92%;
+      max-width: 1150px;
+      margin: auto;
+      min-height: 70px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #36a3ff;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #b8c9dd;
+      font-size: 14px;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #36a3ff;
+    }
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 620px;
+
+      display: flex;
+      align-items: center;
+
+      background:
+        radial-gradient(circle at 80% 20%, rgba(54,163,255,0.14), transparent 30%),
+        radial-gradient(circle at 10% 80%, rgba(54,163,255,0.08), transparent 30%),
+        #07111f;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.25;
+
+      background-image:
+        linear-gradient(#17304b 1px, transparent 1px),
+        linear-gradient(90deg, #17304b 1px, transparent 1px);
+
+      background-size: 45px 45px;
+      pointer-events: none;
+    }
+
+    .hero-container {
+      position: relative;
+      width: 92%;
+      max-width: 1150px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 7px 12px;
+      margin-bottom: 20px;
+
+      border: 1px solid #24557f;
+      border-radius: 30px;
+
+      color: #6dbbff;
+      background: #0b1c2f;
+
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      color: #36a3ff;
+    }
+
+    .hero h2 {
+      font-size: clamp(20px, 3vw, 30px);
+      color: #c7d8ea;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: #93a9c1;
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 20px;
+
+      border-radius: 7px;
+      text-decoration: none;
+
+      font-weight: bold;
+      font-size: 14px;
+
+      transition: 0.2s;
+    }
+
+    .button-primary {
+      background: #1687e8;
+      color: white;
+    }
+
+    .button-primary:hover {
+      background: #0f73c7;
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      border: 1px solid #31516f;
+      color: #c8d8e9;
+      background: #0b1929;
+    }
+
+    .button-secondary:hover {
+      border-color: #36a3ff;
+      color: #36a3ff;
+    }
+
+    /* ---------- TERMINAL ---------- */
+
+    .terminal {
+      background: #050b13;
+      border: 1px solid #23415f;
+      border-radius: 12px;
+      overflow: hidden;
+
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .terminal-top {
+      padding: 12px 15px;
+      border-bottom: 1px solid #1a3047;
+      background: #0b1624;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      margin-right: 5px;
+      border-radius: 50%;
+      background: #52718e;
+    }
+
+    .terminal-body {
+      padding: 22px;
+      font-family: "Courier New", monospace;
+      font-size: 13px;
+      color: #a9c4df;
+    }
+
+    .terminal-line {
+      margin-bottom: 13px;
+    }
+
+    .terminal-blue {
+      color: #36a3ff;
+    }
+
+    .terminal-white {
+      color: #eaf4ff;
+    }
+
+    /* ---------- SECTIONS ---------- */
+
+    section {
+      width: 92%;
+      max-width: 1150px;
+      margin: auto;
+      padding: 85px 0;
+    }
+
+    .section-label {
+      color: #36a3ff;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 5vw, 42px);
+      margin-bottom: 15px;
+    }
+
+    .section-text {
+      max-width: 720px;
+      color: #91a6bd;
+      margin-bottom: 40px;
+    }
+
+    /* ---------- ABOUT ---------- */
+
+    .about {
+      background: #091626;
+      width: 100%;
+    }
+
+    .about section {
+      padding-bottom: 80px;
+    }
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .info-box {
+      padding: 28px;
+      border: 1px solid #1b3854;
+      border-radius: 10px;
+      background: #0b1a2b;
+    }
+
+    .info-box h3 {
+      margin-bottom: 10px;
+      color: #e9f3ff;
+    }
+
+    .info-box p {
+      color: #91a6bd;
+      font-size: 15px;
+    }
+
+    /* ---------- SERVICES ---------- */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service {
+      padding: 25px;
+      border: 1px solid #1b3854;
+      border-radius: 10px;
+      background: #0b1929;
+
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+      border-color: #2d7db8;
+    }
+
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .service h3 {
+      margin-bottom: 9px;
+      font-size: 18px;
+    }
+
+    .service p {
+      color: #8fa5bc;
+      font-size: 14px;
+    }
+
+    /* ---------- SKILLS ---------- */
+
+    .skills {
+      background: #091626;
+      width: 100%;
+    }
+
+    .skills section {
+      padding-bottom: 85px;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .skill {
+      padding: 18px;
+      background: #0b1a2b;
+      border-left: 3px solid #1687e8;
+      color: #c5d6e8;
+    }
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .contact-card {
+      padding: 30px;
+      background: #0b1929;
+      border: 1px solid #1b3854;
+      border-radius: 10px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .contact-card p {
+      color: #91a6bd;
+      margin-bottom: 18px;
+    }
+
+    .whatsapp {
+      color: #bde8d0;
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+      padding: 35px 20px;
+      text-align: center;
+
+      background: #050c15;
+      border-top: 1px solid #1a3047;
+    }
+
+    footer h3 {
+      margin-bottom: 7px;
+    }
+
+    footer p {
+      color: #738ba4;
+      font-size: 13px;
+    }
+
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width: 900px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal {
+        max-width: 650px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+      .nav-container {
+        padding: 15px 0;
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 80px 0;
+      }
+
+      .about-box,
+      .contact-box,
+      .skill-list {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+    }
+  </style></head><body>  <!-- ================= HEADER ================= -->  <header>
+    <div class="nav-container">  <a href="#home" class="logo">
+    GODSWILL<span>TECH</span>
+  </a>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#skills">Focus</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</div>
+
+  </header>  <!-- ================= HERO ================= -->  <main><div class="hero" id="home">
+
+  <div class="hero-container">
+
+    <div>
+
+      <div class="status">
+        ● SYSTEM ONLINE
+      </div>
+
+      <h1>
+        Godswill<span>Tech</span>
+      </h1>
+
+      <h2>
+        Computer Engineering & Technology
+      </h2>
+
+      <p>
+        Exploring computer hardware, engineering, troubleshooting
+        and practical technology. Learn. Build. Solve. Innovate.
+      </p>
+
+      <div class="buttons">
+
+        <a href="#services" class="button button-primary">
+          Explore Technology
+        </a>
+
+        <a href="#contact" class="button button-secondary">
+          Contact GodswillTech
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- TERMINAL CARD -->
+
+    <div class="terminal">
+
+      <div class="terminal-top">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <div class="terminal-body">
+
+        <div class="terminal-line">
+          <span class="terminal-blue">$</span>
+          godswilltech --status
+        </div>
+
+        <div class="terminal-line">
+          SYSTEM:
+          <span class="terminal-white">ONLINE ✓</span>
+        </div>
+
+        <div class="terminal-line">
+          ENGINEERING:
+          <span class="terminal-white">ACTIVE</span>
+        </div>
+
+        <div class="terminal-line">
+          HARDWARE:
+          <span class="terminal-white">READY</span>
+        </div>
+
+        <div class="terminal-line">
+          LEARNING:
+          <span class="terminal-white">CONTINUOUS</span>
+        </div>
+
+        <div class="terminal-line">
+          LOCATION:
+          <span class="terminal-white">ABA, NIGERIA</span>
+        </div>
+
+        <div class="terminal-line">
+          <span class="terminal-blue">></span>
+          Build. Learn. Solve.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+
+<div class="about">
+
+  <section id="about">
+
+    <div class="section-label">
+      01 / About
+    </div>
+
+    <h2 class="section-title">
+      Technology with a practical mindset.
+    </h2>
+
+    <p class="section-text">
+      GodswillTech is focused on computer engineering, hardware,
+      troubleshooting and practical technology knowledge.
+      The aim is to understand how technology works and use that
+      knowledge to solve real-world problems.
+    </p>
+
+    <div class="about-box">
+
+      <div class="info-box">
+        <h3>💻 Computer Engineering</h3>
+        <p>
+          Exploring computer systems, hardware, electronics,
+          digital technology and computer architecture.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h3>🔧 Practical Technology</h3>
+        <p>
+          Learning through practical experience with computers,
+          components, troubleshooting and technical problem solving.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+  <div class="section-label">
+    02 / What We Explore
+  </div>
+
+  <h2 class="section-title">
+    Engineering & Technology
+  </h2>
+
+  <p class="section-text">
+    Areas of technology and computer engineering explored through
+    practical learning and experience.
+  </p>
+
+
+  <div class="services-grid">
+
+    <div class="service">
+      <div class="service-icon">🖥️</div>
+      <h3>Computer Hardware</h3>
+      <p>
+        CPUs, RAM, storage, motherboards, laptops, desktops
+        and computer components.
+      </p>
+    </div>
+
+    <div class="service">
+      <div class="service-icon">🔧</div>
+      <h3>Troubleshooting</h3>
+      <p>
+        Understanding common computer problems and practical
+        approaches to diagnosing them.
+      </p>
+    </div>
+
+    <div class="service">
+      <div class="service-icon">⚙️</div>
+      <h3>Technology</h3>
+      <p>
+        Exploring useful technology, computer tools and
+        modern computing.
+      </p>
+    </div>
+
+    <div class="service">
+      <div class="service-icon">🧠</div>
+      <h3>Engineering</h3>
+      <p>
+        Developing practical knowledge of computer systems,
+        electronics and digital technology.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FOCUS ================= -->
+
+<div class="skills">
+
+  <section id="skills">
+
+    <div class="section-label">
+      03 / Focus Areas
+    </div>
+
+    <h2 class="section-title">
+      Current Technology Focus
+    </h2>
+
+    <p class="section-text">
+      Building knowledge one system at a time.
+    </p>
+
+    <div class="skill-list">
+
+      <div class="skill">
+        💻 Computer Systems
+      </div>
+
+      <div class="skill">
+        🔌 Computer Hardware
+      </div>
+
+      <div class="skill">
+        ⚡ Electronics & Digital Systems
+      </div>
+
+      <div class="skill">
+        🔧 Computer Troubleshooting
+      </div>
+
+      <div class="skill">
+        🧠 Technical Problem Solving
+      </div>
+
+      <div class="skill">
+        🚀 Technology & Innovation
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+  <div class="section-label">
+    04 / Contact
+  </div>
+
+  <h2 class="section-title">
+    Connect with GodswillTech
+  </h2>
+
+  <p class="section-text">
+    For technology-related enquiries and communication,
+    you can reach GodswillTech through WhatsApp.
+  </p>
+
+  <div class="contact-box">
+
+    <div class="contact-card">
+
+      <h3>📱 WhatsApp</h3>
+
+      <p class="whatsapp">
+        +234 904 156 3231
+      </p>
+
+      <a
+        class="button button-primary"
+        href="https://wa.me/2349041563231"
+        target="_blank"
+        rel="noopener noreferrer">
+        Chat on WhatsApp
+      </a>
+
+    </div>
+
+
+    <div class="contact-card">
+
+      <h3>📍 Location</h3>
+
+      <p>
+        Aba, Abia State, Nigeria 🇳🇬
+      </p>
+
+      <p>
+        GodswillTech — Computer Engineering,
+        Hardware & Technology.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+  </main>  <!-- ================= FOOTER ================= -->  <footer><h3>GODSWILL<span>TECH</span></h3>
+
+<p>
+  Computer Engineering • Hardware • Technology
+</p>
+
+<p>
+  © 2026 GodswillTech. All rights reserved.
+</p>
+
+  </footer></body>
+</html>
